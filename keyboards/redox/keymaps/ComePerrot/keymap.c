@@ -1,20 +1,13 @@
 #include QMK_KEYBOARD_H
 
-enum layers {
-   _BASE,
-   _FUNC,
-   _NAV
-};
+enum layers { _BASE, _FUNC, _NAV };
 
-enum my_keycodes {
-  RGB_SWT = SAFE_RANGE,
-  LAYER_RST
-};
+enum my_keycodes { RGB_SWT = SAFE_RANGE, LAYER_RST };
 
 // Shortcut to make keymap more readable
-#define FUNC_MO   MO(_FUNC)
-#define FUNC   TG(_FUNC)
-#define NAV   TG(_NAV)
+#define FUNC_MO MO(_FUNC)
+#define FUNC TG(_FUNC)
+#define NAV TG(_NAV)
 #define COLON RSFT(KC_N)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -63,36 +56,36 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-  switch(biton32(state)) {
-  case _BASE:
-    rgblight_sethsv_noeeprom(HSV_BLUE);
-    break;
-  case _FUNC:
-    rgblight_sethsv_noeeprom(HSV_MAGENTA);
-    break;
-  case _NAV:
-    rgblight_sethsv_noeeprom(HSV_ORANGE);
-    break;
-  default:
-    rgblight_sethsv_noeeprom(HSV_BLUE);
-    break;
-}
-return state;
+    switch (biton32(state)) {
+        case _BASE:
+            rgblight_sethsv_noeeprom(HSV_BLUE);
+            break;
+        case _FUNC:
+            rgblight_sethsv_noeeprom(HSV_MAGENTA);
+            break;
+        case _NAV:
+            rgblight_sethsv_noeeprom(HSV_ORANGE);
+            break;
+        default:
+            rgblight_sethsv_noeeprom(HSV_BLUE);
+            break;
+    }
+    return state;
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {
-    case RGB_SWT:
-      if (record->event.pressed) {
-        rgblight_toggle_noeeprom();
-      }
-      return true;
-   case LAYER_RST:
-      if (record->event.pressed) {
-        layer_clear();
-      }
-      return true;
-    default:
-      return true; // Process all other keycodes normally
-  }
+    switch (keycode) {
+        case RGB_SWT:
+            if (record->event.pressed) {
+                rgblight_toggle_noeeprom();
+            }
+            return true;
+        case LAYER_RST:
+            if (record->event.pressed) {
+                layer_clear();
+            }
+            return true;
+        default:
+            return true; // Process all other keycodes normally
+    }
 }
