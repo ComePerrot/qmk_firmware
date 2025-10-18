@@ -8,10 +8,8 @@ enum my_keycodes { RGB_SWT = SAFE_RANGE, LAYER_RST };
 #define FUNC TG(_FUNC)
 #define NAV TG(_NAV)
 #define FUNC_SPC LT(2, KC_SPC)
-#define NUM_BSPC LT(1, KC_BSPC)
+#define NUM_ENT LT(1, KC_ENT)
 #define NAV_ESC LT(3, KC_ESC)
-#define COLON RSFT(KC_N)
-#define LALT_COL MT(MOD_LALT, COLON)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -21,11 +19,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐                         ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      KC_TAB  ,KC_Q    ,KC_W    ,KC_E    ,KC_R    ,KC_T    ,KC_NO   ,                          KC_NO   ,KC_Y    ,KC_U    ,KC_I    ,KC_O    ,KC_P    ,KC_LGUI ,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┤                         ├────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     NAV_ESC ,KC_A    ,KC_S    ,KC_D    ,KC_F    ,KC_G    ,KC_NO   ,                          KC_NO   ,KC_H    ,KC_J    ,KC_K    ,KC_L    ,KC_SCLN ,LALT_COL,
+     NAV_ESC ,KC_A    ,KC_S    ,KC_D    ,KC_F    ,KC_G    ,KC_NO   ,                          KC_NO   ,KC_H    ,KC_J    ,KC_K    ,KC_L    ,KC_SCLN ,KC_LALT ,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┐       ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      KC_LSFT ,KC_Z    ,KC_X    ,KC_C    ,KC_V    ,KC_B    ,FUNC    ,NAV     ,        NAV     ,FUNC    ,KC_N    ,KC_M    ,KC_COMM ,KC_DOT  ,KC_SLSH ,KC_RSFT ,
   //├────────┼────────┼────────┼────────┼────┬───┴────┬───┼────────┼────────┤       ├────────┼────────┼───┬────┴───┬────┼────────┼────────┼────────┼────────┤
-     KC_NO   ,KC_NO   ,KC_NO   ,KC_NO   ,     KC_LCTL ,    FUNC_SPC,KC_ENT  ,        KC_DEL  ,NUM_BSPC,    KC_RALT ,     KC_LEFT ,KC_DOWN ,KC_UP   ,KC_RGHT 
+     KC_NO   ,KC_NO   ,KC_NO   ,KC_NO   ,     KC_LCTL ,    FUNC_SPC,NUM_ENT ,        KC_DEL  ,KC_BSPC ,    KC_RALT ,     KC_LEFT ,KC_DOWN ,KC_UP   ,KC_RGHT 
   //└────────┴────────┴────────┴────────┘    └────────┘   └────────┴────────┘       └────────┴────────┘   └────────┘    └────────┴────────┴────────┴────────┘
   ),
 
