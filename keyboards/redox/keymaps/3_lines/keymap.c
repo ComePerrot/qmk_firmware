@@ -9,6 +9,7 @@ enum my_keycodes { RGB_SWT = SAFE_RANGE, LAYER_RST, CUST_ALT };
 #define NAV TG(_NAV)
 #define FUNC_SPC LT(2, KC_SPC)
 #define NUM_ENT LT(1, KC_ENT)
+#define NUM_BSPC LT(1, KC_BSPC)
 #define NAV_ESC LT(3, KC_ESC)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -23,7 +24,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┐       ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      KC_LSFT ,KC_Z    ,KC_X    ,KC_C    ,KC_V    ,KC_B    ,FUNC    ,NAV     ,        NAV     ,FUNC    ,KC_N    ,KC_M    ,KC_COMM ,KC_DOT  ,KC_SLSH ,KC_RSFT ,
   //├────────┼────────┼────────┼────────┼────┬───┴────┬───┼────────┼────────┤       ├────────┼────────┼───┬────┴───┬────┼────────┼────────┼────────┼────────┤
-     KC_NO   ,KC_NO   ,KC_NO   ,KC_NO   ,     KC_LCTL ,    FUNC_SPC,NUM_ENT ,        KC_DEL  ,KC_BSPC ,    KC_RALT ,     KC_LEFT ,KC_DOWN ,KC_UP   ,KC_RGHT 
+     KC_NO   ,KC_NO   ,KC_NO   ,KC_NO   ,     KC_LCTL ,    FUNC_SPC,KC_ENT  ,        KC_DEL  ,NUM_BSPC,    KC_RALT ,     KC_LEFT ,KC_DOWN ,KC_UP   ,KC_RGHT 
   //└────────┴────────┴────────┴────────┘    └────────┘   └────────┴────────┘       └────────┴────────┘   └────────┘    └────────┴────────┴────────┴────────┘
   ),
 
