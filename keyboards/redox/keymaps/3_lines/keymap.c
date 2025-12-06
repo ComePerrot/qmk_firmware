@@ -116,7 +116,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 }
             } else if (record->event.pressed) {
                 // Held: send Alt
-                tap_code16(KC_LALT);
+                register_code(KC_LALT);
+            }else {
+                unregister_code(KC_LALT);
             }
             return false;
         default:
